@@ -10,5 +10,5 @@ class LectureForm(forms.ModelForm):
 
     class Meta:
         model = Lecture
-        fields = ['title', 'start_date', 'start_time', 'end_time', 'end_time', 'course', 'classroom']
+        fields = ['title', 'start_date', 'start_time', 'end_date', 'end_time', 'course', 'classroom']
 

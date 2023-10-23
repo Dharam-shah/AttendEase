@@ -22,7 +22,7 @@ class CreateLectureView(CreateView):
     def form_valid(self, form):
         if not self.request.user.is_teacher:
             return HttpResponse(status=400, data="Not Allowed")
-        form.instance.lecturer = self.request.user.teacher.id
+        form.instance.lecturer = self.request.user.teacher
         return super().form_valid(form)
 
 
