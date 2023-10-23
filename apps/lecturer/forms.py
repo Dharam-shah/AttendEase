@@ -12,7 +12,3 @@ class LectureForm(forms.ModelForm):
         model = Lecture
         fields = ['title', 'start_time', 'start_time', 'end_time', 'course', 'classroom']
 
-    def save(self, commit: bool = ...):
-        if self.request.user.is_teacher:
-            self.lecturer = self.request.user
-        return super().save(commit=True)

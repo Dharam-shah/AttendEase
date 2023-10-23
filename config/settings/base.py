@@ -157,3 +157,7 @@ import socket
 hostname = socket.gethostname()
 BACKEND_HOST = socket.gethostbyname(hostname)
 BASE_URL = "http://" + BACKEND_HOST + ":8000"
+
+
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGOUT_REDIRECT_URL = 'index'

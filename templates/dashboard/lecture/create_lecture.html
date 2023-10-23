@@ -16,28 +16,7 @@
                 
                 <form method="POST">
                     {% csrf_token %}
-                    {{form | crispy}}
-                    <!-- <div class="form-group">
-                        {{form.title|as_crispy_field}}
-                    </div>
-                    <div class="form-group">
-                        {{form.start_date|as_crispy_field}}
-                    </div>
-                    <div class="form-group">
-                        {{form.start_time|as_crispy_field}}
-                    </div>
-                    <div class="form-group">
-                        {{form.end_date|as_crispy_field}}
-                    </div>
-                    <div class="form-group">
-                        {{form.end_time|as_crispy_field}}
-                    </div>
-                    <div class="form-group">
-                        {{form.course|as_crispy_field}}
-                    </div>
-                    <div class="form-group">
-                        {{form.classroom|as_crispy_field}}
-                    </div> -->
+                    {{form.as_p}}
                     <input type="submit" value="Create">
                     <!-- <a href="{% url 'create-lecture' %}" class="lecture-btn text-white px-4 py-2">Create</a> -->
                 </form>
