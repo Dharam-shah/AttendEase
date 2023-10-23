@@ -13,9 +13,11 @@
                 <h3>Create Lecture</h3>
             </div>
             <div class="new-lecture-form">
-                {% csrf_token %}
+                
                 <form method="POST">
-                    <div class="form-group">
+                    {% csrf_token %}
+                    {{form | crispy}}
+                    <!-- <div class="form-group">
                         {{form.title|as_crispy_field}}
                     </div>
                     <div class="form-group">
@@ -35,79 +37,12 @@
                     </div>
                     <div class="form-group">
                         {{form.classroom|as_crispy_field}}
-                    </div>
-                    <input type="submit" class="btn btn-primary float-right" value="Create">
+                    </div> -->
+                    <input type="submit" value="Create">
+                    <!-- <a href="{% url 'create-lecture' %}" class="lecture-btn text-white px-4 py-2">Create</a> -->
                 </form>
             </div>
         </div>
-
-
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Lecture Title</th>
-                    <th>Start date & time</th>
-                    <th>End date & time</th>
-                    <th>Course</th>
-                    <th>Classroom</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>john@example.com</td>
-                    <td>dssd</td>
-                    <td>a101</td>
-                    <td>
-                        <div class="dropdown">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-pencil-square" aria-hidden="true"></i>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#">Edit</a>                             
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Mary</td>
-                    <td>Moe</td>
-                    <td>mary@example.com</td>
-                    <td>dssd</td>
-                    <td>a101</td>
-                    <td>
-                        <div class="dropdown">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-pencil-square" aria-hidden="true"></i>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#">Edit</a>                             
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
-                    <td>dssd</td>
-                    <td>a101</td>
-                    <td>
-                        <div class="dropdown">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-pencil-square" aria-hidden="true"></i>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#">Edit</a>                             
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
     </div>
 </div>
 <!-- /.content-wrapper -->

@@ -1,13 +1,116 @@
-{% extends "dashboard/base.html" %} 
+{% extends "dashboard/base.html" %}
 {% load static %}
 {% block extrahead %}
-<link rel="stylesheet" href="{% static 'css/lecture/create_lecture.css' %}" />
+<link rel="stylesheet" href="{% static 'css/lecture/lecture_list.css' %}" />
 {% endblock %}
 {% load crispy_forms_tags %}
 {% block main %}
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <div class="container m-0 p-3">   
+    <div class="container">
+        <div calss="lecture-list">
+            <table class="table table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th>Lecture Title</th>
+                        <th>Start date & time</th>
+                        <th>End date & time</th>
+                        <th>Course</th>
+                        <th>Classroom</th>
+                        <th>QR Code</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>john@example.com</td>
+                        <td>dssd</td>
+                        <td>a101</td>
+                        <td><a class="btn" data-toggle="modal" data-target="#staticBackdrop">
+                                Show
+                            </a></td>
+                        <td>
+                            <div class="dropdown">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                    id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Edit</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Mary</td>
+                        <td>Moe</td>
+                        <td>mary@example.com</td>
+                        <td>dssd</td>
+                        <td>a101</td>
+                        <td><a class="btn" data-toggle="modal" data-target="#staticBackdrop">
+                                Show
+                            </a></td>
+                        <td>
+                            <div class="dropdown">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                    id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Edit</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>July</td>
+                        <td>Dooley</td>
+                        <td>july@example.com</td>
+                        <td>dssd</td>
+                        <td>a101</td>
+                        <td><a class="btn" data-toggle="modal" data-target="#staticBackdrop">
+                                Show
+                            </a></td>
+                        <td>
+                            <div class="dropdown">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                    id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Edit</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Understood</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     </div>
 </div>

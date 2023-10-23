@@ -17,6 +17,18 @@ body {
   margin: 0 auto;
 }
 
+/* .container {
+  margin-left: 0 !important;
+  max-width: 100% !important;
+} */
+
+@media(min-width:1440px) {
+  .container {
+    margin-left: 0 !important;
+      max-width: 1310px !important;
+  }
+}
+
 .content-wrapper {
   background-color: #fff !important;
 }
@@ -28,3 +40,7 @@ body {
 .nav-item .active{
   background-color: #45494d !important;
 }
+
+/* .input {
+  width: 100% !important;
+} */
