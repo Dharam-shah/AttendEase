@@ -1,53 +1,113 @@
-{% extends "dashboard/base.html" %} 
+{% extends "dashboard/base.html" %}
 {% load static %}
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/lecture/create_lecture.css' %}" />
+{% endblock %}
 {% load crispy_forms_tags %}
 {% block main %}
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <div class="container m-0 p-5">   
+    <div class="container m-0 p-3">
         <div class="new-lecture-content">
             <div class="title">
-                <h6>Create Lecture</h6>
+                <h3>Create Lecture</h3>
             </div>
             <div class="new-lecture-form">
                 {% csrf_token %}
                 <form method="POST">
-                    <div class="row">
-                        <div class="form-group">
-                            <label for="email">Lecture title:</label>
-                            {{form.title}}
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Start date:</label>
-                            {{form.start_date}}
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Start time:</label>
-                            {{form.start_time}}
-                        </div>
-                        <div class="form-group">
-                            <label for="email">End date:</label>
-                            {{form.end_date}}
-                        </div>
-                        <div class="form-group">
-                            <label for="email">End time:</label>
-                            {{form.end_time}}
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Course:</label>
-                            {{form.course}}
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Classroom:</label>
-                            {{form.classroom}}
-                        </div>
+                    <div class="form-group">
+                        {{form.title|as_crispy_field}}
                     </div>
-                    <!-- {{form.title}}
-                    {{form.title}} -->
-                    <input type="submit" class="btn btn-primary float-right" value="Save">
+                    <div class="form-group">
+                        {{form.start_date|as_crispy_field}}
+                    </div>
+                    <div class="form-group">
+                        {{form.start_time|as_crispy_field}}
+                    </div>
+                    <div class="form-group">
+                        {{form.end_date|as_crispy_field}}
+                    </div>
+                    <div class="form-group">
+                        {{form.end_time|as_crispy_field}}
+                    </div>
+                    <div class="form-group">
+                        {{form.course|as_crispy_field}}
+                    </div>
+                    <div class="form-group">
+                        {{form.classroom|as_crispy_field}}
+                    </div>
+                    <input type="submit" class="btn btn-primary float-right" value="Create">
                 </form>
             </div>
         </div>
+
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Lecture Title</th>
+                    <th>Start date & time</th>
+                    <th>End date & time</th>
+                    <th>Course</th>
+                    <th>Classroom</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                    <td>dssd</td>
+                    <td>a101</td>
+                    <td>
+                        <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Edit</a>                             
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                    <td>dssd</td>
+                    <td>a101</td>
+                    <td>
+                        <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Edit</a>                             
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                    <td>dssd</td>
+                    <td>a101</td>
+                    <td>
+                        <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Edit</a>                             
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
     </div>
 </div>
 <!-- /.content-wrapper -->
