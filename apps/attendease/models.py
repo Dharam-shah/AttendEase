@@ -1,6 +1,7 @@
 from django.db import models
+from django.utils.text import slugify
 from apps.lecturer.models import Lecture
-
+from apps.users.models import Teacher
 from apps.users.models import Student
 
 # Create your models here.

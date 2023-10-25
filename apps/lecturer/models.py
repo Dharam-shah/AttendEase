@@ -1,5 +1,3 @@
-import os
-from collections.abc import Iterable
 from io import BytesIO
 from django.conf import settings
 from urllib.parse import urljoin
@@ -7,14 +5,36 @@ import qrcode
 from django.urls import reverse
 from django.db import models
 from django.utils.text import slugify
-
-from apps.users.models import Teacher
+from apps.users.models import Teacher, Student
 from config.helpers import image_path
 from .constants import COURSES, CLASSROOMS
 from django.core.files.base import ContentFile
 
 
 # Create your models here.
+class Course(models.Model): 
+    title = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True, null=True, blank=True, max_length=120)
+    created_by = models.ForeignKey(Teacher, on_delete=models.PROTECT, related_name="lecture_creater", null=True, blank=True)
+
+    def __str__(self):
+        return self.title
+    
+    def save(self, *args, **kwargs) -> None:
+      
+        if not self.slug:
+            self.slug = slugify(self.title)
+            super().save(*args, **kwargs)
+
+
+class CourseEnrollment(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.PROTECT, related_name="stu_course_enroll",  null=True, blank=True)
+    Course = models.ManyToManyField(Course, related_name="course_enroll")
+
+    def __str__(self):
+        return self.student.user.first_name
+    
+
 class Lecture(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(unique=True, null=True, blank=True, max_length=120)
@@ -24,7 +44,7 @@ class Lecture(models.Model):
     end_time = models.TimeField()
     lecture_created = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True, null=True, blank=True)
-    course = models.CharField(choices=COURSES, max_length=100)
+    course = models.ForeignKey(Course, on_delete=models.PROTECT, related_name="course", null=True, blank=True)
     classroom = models.CharField(choices=CLASSROOMS, max_length=100)
     lecturer = models.ForeignKey(Teacher, on_delete=models.PROTECT, related_name="lecture", null=True, blank=True)
     qr = models.ImageField(
