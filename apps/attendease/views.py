@@ -5,6 +5,7 @@ from django.views.generic import CreateView as GCV
 from django.views.generic.edit import CreateView
 from django.urls import reverse, reverse_lazy
 from .models import Attendance
+from django.views.generic import ListView, DetailView 
 # Create your views here.
 
 def index(request):
@@ -13,7 +14,7 @@ def index(request):
 def dashboard(request):
     return render(request, "dashboard/base.html")
 
-class CreateAttendaceView(GCV):
+class CreateAttendaceView(DetailView):
     """
     TODO: implement logic to mark attendance.
      - get user from request
@@ -21,17 +22,18 @@ class CreateAttendaceView(GCV):
      - save it
     """
     model = Lecture
+    template_name = 'attendease/mark_attendance.html'
     queryset = Lecture.objects.all()
 
-    def post(self, request, *args, **kwargs):
-        self.object = None
-        lecture = self.get_object()
-        user = request.user
+    # def post(self, request, *args, **kwargs):
+    #     self.object = None
+    #     lecture = self.get_object()
+    #     user = request.user
 
-        if not user.is_student:
-            return HttpResponse("Only Student Can Mark There Attendance")
+    #     if not user.is_student:
+    #         return HttpResponse("Only Student Can Mark There Attendance")
         
-        attendace = Attendance.entry(user, lecture)
+    #     attendace = Attendance.entry(user, lecture)
         
-        return HttpResponse(f"Successfully marked attanced for {attendace.lecture.title}.")
+    #     return HttpResponse(f"Successfully marked attanced for {attendace.lecture.title}.")
 
