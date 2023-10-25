@@ -32,7 +32,7 @@ class CourseEnrollment(models.Model):
     Course = models.ManyToManyField(Course, related_name="course_enroll")
 
     def __str__(self):
-        return self.student.user.first_name
+        return self.student.user.username
     
 
 class Lecture(models.Model):
