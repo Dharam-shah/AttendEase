@@ -28,7 +28,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('attendance/', include("apps.attendease.urls")),
     path('lecture/', include("apps.lecturer.urls")),
-    # path("login/", auth_views.LoginView.as_view(template_name="account/login.html"))
+    path('', include("apps.student.urls")),
     path('login/', auth_views.LoginView.as_view(template_name='account/login.html', redirect_authenticated_user=True), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='account/logout.html'), name='logout')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

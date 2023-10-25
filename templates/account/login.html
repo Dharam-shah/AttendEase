@@ -1,19 +1,18 @@
-{% extends "dashboard/base.html" %}
+{% extends "base.html" %}
 {% load static %}
 {% block extrahead %}
-<!-- <link rel="stylesheet" href="{% static 'css/lecture/create_lecture.css' %}" /> -->
+<link rel="stylesheet" href="{% static 'css/account/login.css' %}" />
 {% endblock %}
 <!-- {% load crispy_forms_tags %} -->
 {% block main %}
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <div class="container m-0 p-3">
-        <div class="new-lecture-content">
-            <div class="title">
+    <div class="container">
+        <div class="login-wrap">
+            <div class="heading pb-4 text-center">
                 <h3>Login</h3>
             </div>
-            <div class="new-lecture-form">
-                
+            <div class="login-form">
                 <form method="POST">
                     {% csrf_token %}
                     {{form}}
