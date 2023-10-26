@@ -11,7 +11,6 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
 
-
 # Create your views here.
 def index(request):
     return render(request, "attendease/homepage.html")
@@ -21,8 +20,7 @@ def dashboard(request):
     return render(request, "dashboard/base.html")
 
 
-
-# @method_decorator(login_required(login_url="login"), name="dispatch")
+@method_decorator(login_required(login_url="login"), name="dispatch")
 class CreateAttendaceView(CreateView, DetailView):
     """
     TODO: implement logic to mark attendance.
@@ -44,8 +42,6 @@ class CreateAttendaceView(CreateView, DetailView):
     queryset = Lecture.objects.all()
 
     def post(self, request, *args, **kwargs):
-        # import ipdb;
-        # ipdb.set_trace()
         self.object = None
         lecture = self.get_object()
         user = request.user
@@ -57,3 +53,17 @@ class CreateAttendaceView(CreateView, DetailView):
         
         return HttpResponse(f"Successfully marked attanced for {attendace.lecture.title}.")
 
+
+class AttendanceDetailView(ListView):
+    model = Attendance
+    template_name = 'attendease/attendance_detail.html'
+
+    # def get_queryset(self):
+    #     queryset = super().get_queryset()
+
+    #     if self.request.user.is_teacher:
+    #         return queryset.filter(lecturer__user=self.request.user)
+    #     elif self.request.user.is_student:
+    #         return queryset.filter(course__course_enroll__student__user=self.request.user)
+
+    #     return queryset
