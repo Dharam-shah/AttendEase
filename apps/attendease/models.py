@@ -11,7 +11,7 @@ class Attendance(models.Model):
     marked_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
-        return self.student + self.lecture + self.marked_at
+        return f"{self.student} - {self.lecture} - {self.marked_at}"
     
     @classmethod
     def entry(cls, student:Student, lecture:Lecture):
