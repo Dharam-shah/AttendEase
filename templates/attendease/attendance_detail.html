@@ -10,39 +10,22 @@
     <div class="container">
         <div calss="lecture-list">
             <table class="table table-hover table-responsive">
+                <!-- {{object_list}} -->
+                <h3>Attendance details for </h3>
+                {{attendance}}
                 <thead>
                     <tr>
-                        <th>Lecture Title</th>
-                        <th>Start date & time</th>
-                        <th>End date & time</th>
-                        <th>Course</th>
-                        <th>Classroom</th>
-                        <th>QR Code</th>
-                        <th>Action</th>
+                        <th>Student name</th>
+                        <th>Marked at</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- {% for lecture in object_list %} -->
+                    {% for marked_attendance in attendance %}
                     <tr>
-                        <td>Lecture 1</td>
-                        <td>aa<span> | aa</span></td>
-                        <td>aa<span> | aa</span></td>
-                        <td><span>aa</span></td>
-                        <td>aa</td>
-                        <td><a href="#" target="_blank">show</a>
-                        <td>
-                            <div class="dropdown">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
-                                    id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa fa-pencil-square" aria-hidden="true"></i>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Edit</a>
-                                </div>
-                            </div>
-                        </td>
+                        <td>{{marked_attendance.student}}</td>
+                        <td>{{marked_attendance.marked_at}}</td>
                     </tr>
-                    <!-- {% endfor %} -->
+                    {% endfor %}
                 </tbody>
             </table>
         </div>

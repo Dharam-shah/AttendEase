@@ -51,19 +51,25 @@ class CreateAttendaceView(CreateView, DetailView):
         
         attendace = Attendance.entry(user.student, lecture)
         
-        return HttpResponse(f"Successfully marked attanced for {attendace.lecture.title}.")
+        return HttpResponse(f"Successfully marked attendance for {attendace.lecture.title}.")
 
 
-class AttendanceDetailView(ListView):
+@method_decorator(login_required(login_url="login"), name="dispatch")
+class AttendanceDetailView(DetailView):
     model = Attendance
     template_name = 'attendease/attendance_detail.html'
+    context_object_name = "attendance"
 
-    # def get_queryset(self):
-    #     queryset = super().get_queryset()
+    queryset = Attendance.objects.all()
 
-    #     if self.request.user.is_teacher:
-    #         return queryset.filter(lecturer__user=self.request.user)
-    #     elif self.request.user.is_student:
-    #         return queryset.filter(course__course_enroll__student__user=self.request.user)
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        if self.request.user.is_student:
+            return queryset.filter(student=self.request.user.student, lecture_id=self.kwargs['id'])
+    
+        return queryset.filter(lecture_id=self.kwargs['pk'])
+    
+    def get_object(self, queryset=None):
+        return self.get_queryset()
 
-    #     return queryset
+    
