@@ -17,7 +17,9 @@ body {
 } */
 
 /* site-header start */
-
+.site-header {
+  margin-top: 15px;
+}
 /* site header end */
 
 /* site-footer start */
