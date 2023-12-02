@@ -19,7 +19,7 @@
                         <th>Classroom</th>
                         <th>QR Code</th>
                         <th>Show marked attendance</th>
-                        <th>Action</th>
+                        <!-- <th>Action</th> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -32,7 +32,7 @@
                         <td>{{lecture.classroom}}</td>
                         <td><a href="{{lecture.qr.url}}" target="_blank">show</a>
                         <td><a href="{% url 'attendance-inffo' pk=lecture.id %}" target="_blank">click to show</a>
-                        <td>
+                        <!-- <td>
                             <div class="dropdown">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
                                     id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
@@ -42,7 +42,7 @@
                                     <a class="dropdown-item" href="#">Edit</a>
                                 </div>
                             </div>
-                        </td>
+                        </td> -->
                     </tr>
                     {% endfor %}
                 </tbody>

@@ -39,13 +39,13 @@
     <header class="site-header">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-md navbar-light">
-          {% if request.path == '/login/' %} 
+          {% if request.path == '/' %} 
           <a class="brand-logo" href="/">
-            <img class="img-fluid my-2" src="{% static 'images/logo-black.jpg' %}" alt="Attendease" height="100"width="330" />
+            <img class="img-fluid my-2" src="{% static 'images/brand-logo.png' %}" alt="Attendease" height="100"width="330" />
           </a>
           {% else %}
           <a class="brand-logo" href="/">
-            <img class="img-fluid my-2" src="{% static 'images/brand-logo.png' %}" alt="Attendease" height="100"width="330" />
+            <img class="img-fluid my-2" src="{% static 'images/logo-black.jpg' %}" alt="Attendease" height="100"width="330" />
           </a>
           {% endif %}
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
