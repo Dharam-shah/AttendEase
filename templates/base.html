@@ -39,9 +39,15 @@
     <header class="site-header">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-md navbar-light">
+          {% if request.path == '/login/' %} 
+          <a class="brand-logo" href="/">
+            <img class="img-fluid my-2" src="{% static 'images/logo-black.jpg' %}" alt="Attendease" height="100"width="330" />
+          </a>
+          {% else %}
           <a class="brand-logo" href="/">
             <img class="img-fluid my-2" src="{% static 'images/brand-logo.png' %}" alt="Attendease" height="100"width="330" />
           </a>
+          {% endif %}
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -52,9 +58,9 @@
                 <li class="nav-item">
                   <a class="nav-link {% if request.path != '/login/' %} text-white {%endif%}" href="{% url 'login' %}">Login</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a class="nav-link {% if request.path != '/login/' %} text-white {%endif%}" href="#">Signup</a>
-                </li>
+                </li> -->
               </ul>
             </div>
           </div>
@@ -68,11 +74,8 @@
 
     <footer id="footer" class="site-footer">
       <div class="container-fluid d-flex justify-content-between">
-        <div class="logo">
-          <a class="brand-logo" href="#">
-            <img class="img-fluid my-2" src="{% static 'images/logo-dummy.png' %}" alt="Attendease" height="55"
-              width="150" />
-          </a>
+        <div class="logo py-4">
+            <span><strong class="text-white">Attendease</strong></span>
         </div>
         <div class="footer-text py-4">
           <span><strong class="text-white">Designed by LUT</strong></span>

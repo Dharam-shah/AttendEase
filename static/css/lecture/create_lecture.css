@@ -1,14 +1,33 @@
 .new-lecture-form {
-    padding: 5rem;
-    /* background-color: rgb(247 247 247); */
-    box-shadow: 10px 10px 15px 10px rgba(0,0,0,0.1)
+  padding: 1.5rem 2rem;
+  /* background-color: rgb(247 247 247); */
+  box-shadow: 10px 10px 15px 10px rgba(0, 0, 0, 0.1);
 }
 
 .lecture-btn {
-    background-color: #007bff;
-    border-radius: 4px;
+  background-color: #007bff;
+  border-radius: 4px;
 }
 
-input, select {
-    width: 100% !important;
+input,
+select {
+  width: 100% !important;
+}
+
+.new-lecture-form {
+  max-width: 800px;
+}
+
+.new-lecture-form label {
+  display: block;
+}
+
+.new-lecture-form input,
+.new-lecture-form select {
+  padding: 8px !important;
+  margin-bottom: 8px !important;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 6px;
+  width: 100%;
 }

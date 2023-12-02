@@ -20,6 +20,30 @@ body {
 .site-header {
   margin-top: 15px;
 }
+
+.site-header .navbar {
+  padding: 0;
+}
+
+.site-header .brand-logo {
+  max-width: 260px;
+}
+
+@media (min-width: 575px) {
+  .site-header .brand-logo {
+    max-width: 300px;
+  }
+}
+@media (min-width: 767px) {
+  .site-header .brand-logo {
+    max-width: 100%;
+  }
+}
+
+.site-header .navbar-collapse.show{
+  background-color: rgba(47, 45, 45, 0.75);
+}
+
 /* site header end */
 
 /* site-footer start */
