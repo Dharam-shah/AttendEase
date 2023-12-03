@@ -157,8 +157,7 @@ AUTH_USER_MODEL = "users.User"
 import socket
 hostname = socket.gethostname()
 BACKEND_HOST = socket.gethostbyname(hostname)
-BASE_URL = "http://" + BACKEND_HOST + ":8000"
-
+BASE_URL = "http://16.171.63.88:8000"
 
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL = 'index'
